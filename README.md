@@ -1,3 +1,3 @@
 ## Face Detection
 
-This project is still in progress; I'm trying to bunch together some of my mini projects into one bog project :)
+This project is still in progress; I'm working on combining several of my mini projects into one larger project :)
