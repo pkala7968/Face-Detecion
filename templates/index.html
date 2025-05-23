@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Face Login</title>
+</head>
+<body>
+  <h2>Face Recognition Login</h2>
+  <video id="video" width="320" height="240" autoplay></video>
+  <canvas id="canvas" width="320" height="240" style="display:none;"></canvas>
+  <br>
+  <button onclick="captureAndSend()">Scan Face</button>
+
+  <script>
+    const video = document.getElementById('video');
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(stream => video.srcObject = stream);
+
+    function captureAndSend() {
+      const canvas = document.getElementById('canvas');
+      const context = canvas.getContext('2d');
+      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+      const imageData = canvas.toDataURL('image/jpeg');
+
+      fetch('/verify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ image: imageData })
+        })
+        .then(response => response.json())
+        .then(data => {
+        if (data.result === 'success') {
+            alert("Access Granted ✅");
+            window.location.href = data.redirect;
+        } else {
+            alert("Access Denied ❌");
+        }
+        });
+    }
+  </script>
+</body>
+</html>
