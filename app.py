@@ -48,7 +48,7 @@ def verify():
 
 @app.route('/dashboard')
 def dashboard():
-    return "<h1>Access Granted!</h1><p>Welcome to the secure page.</p>"
+    return render_template('dashboard.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
