@@ -1,8 +1,8 @@
 .container{
     position: relative;
     max-width: 600px;
-    margin: 100px auto;
-    padding: 30px;
+    margin: 20px auto 10px auto;
+    padding: 10px;
     background-color: rgba(255, 255, 255, 0.75);
     border-radius: 12px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
@@ -15,4 +15,15 @@ body{
     font-family: Arial, sans-serif;
     color: #333;
     text-align: center;
+}
+
+.bg-image{
+    background-position: center;
+    background-size: 700px 150px;
+}
+
+p,h3{
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    color: gold;
 }
