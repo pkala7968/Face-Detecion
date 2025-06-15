@@ -1,0 +1,6 @@
+# removing photos use for privacy reasons
+known_faces/*
+
+# keep
+!known_faces/README-faces.md
+
